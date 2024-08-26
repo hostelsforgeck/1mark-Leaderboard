@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fbfaff;
+  font-family: "Rubik", sans-serif;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+nav.navbar {
+  width: 70%;
+  max-width: 30rem;
+  background-color: #ffffff;
+  box-shadow: 0px 5px 15px 8px #e4e7fb;
+  border-radius: 0.5rem;
+  margin: 20px auto;
+  position: relative;
+}
+
+main {
+  width: 80%;
+  max-width: 40rem;
+  min-height: 90vh;
+  background-color: #ffffff;
+  box-shadow: 0px 5px 15px 8px #e4e7fb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 20px auto; /* Center horizontally with auto margins */
+  overflow: auto;  /* Allows for scrolling if content exceeds the height */
+  flex: 1; /* Ensure main takes up remaining space */
+}
+
+#header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.profile img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+  margin-right: 1.5rem;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.profile-details h2 {
+  font-size: 1.5rem;
+  color: #141a39;
+  margin-bottom: 0.5rem;
+}
+
+.profile-details p {
+  font-size: 1rem;
+  color: #707070;
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
+  margin-bottom: 2rem 0;
+}
+
+.contributions-table {
+  width: 100%;
+}
+
+.contributions-table th, .contributions-table td {
+  padding: 1rem;
+  text-align: left;
+}
+
+.contributions-table th {
+  background-color: #f5f5f5;
+  color: #141a39;
+}
+
+.contributions-table tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.contributions-table tr:hover {
+  background-color: #fff;
+  transform: scale(1.02);
+  box-shadow: 0px 5px 15px 8px #e4e7fb;
+}
+
+.contributions-table td {
+  padding-right: 0;
+  padding-left: 1rem;
+}
+
+@media (max-width: 1980px) {
+  body {
+    padding: 1rem;
+  }
+
+  main {
+    width: 90%;
+    min-height: auto;
+  }
+
+  nav.navbar {
+    width: 90%;
+  }
+}
+
+@media (max-width: 740px) {
+  body {
+    padding: 1rem;
+  }
+
+  main {
+    width: 90%;
+    min-height: auto;
+  }
+
+  nav.navbar {
+    width: 90%;
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    padding: 1rem;
+  }
+
+  nav.navbar {
+    width: 90%;
+  }
+
+  .profile img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-details h2 {
+    font-size: 1.3rem;
+  }
+
+  .profile-details p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 390px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  nav.navbar {
+    width: 90%;
+  }
+
+  .profile img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-details h2 {
+    font-size: 1.1rem;
+  }
+
+  .profile-details p {
+    font-size: 0.8rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-light" style="background-color: #ffffff;">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">1mark</a>
+      <ul class="navbar-nav d-flex flex-row">
+        <li class="nav-item" style="margin-right: 10px;padding-left: 30px;">
+          <button class="back-button" style="color: #000000; background: none; border: none; cursor: pointer;" onclick="history.back()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-arrow-left"
+            >
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div id="header">
+      <!-- Header content can be added here -->
+    </div>
+    <div class="profile">
+      <img src="{{ url_for('static', filename='profile_pics/' + profile_pic) }}" alt="Profile Photo" />
+      <div class="profile-details">
+        <h2>{{ profile.name }}</h2>
+        <p>ID: {{ profile.roll_no }} <br>{{ profile.no_of_contributions }} contributions so far</p>
+      </div>
+    </div>
+    <div class="separator"></div>
+    <div class="contributions-table">
+      {% if profile.contributions %}
+        <table class="table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for contribution in profile.contributions %}
+            <tr>
+              <td>{{ loop.index }}</td>
+              <td>{{ contribution[1] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <h4 style="padding-top: 10px; text-align: center;">No contributions yet!</h4>
+      {% endif %}
+    </div>
+  </main>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

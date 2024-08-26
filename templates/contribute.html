@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      height: 100%;
+      width: 100%;
+      min-height: 100vh;
+      background-color: #fbfaff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: "Rubik", sans-serif;
+    }
+
+    main {
+      width: 80%;
+      max-width: 40rem;
+      min-height: 90vh;
+      background-color: #ffffff;
+      box-shadow: 0px 5px 15px 8px #e4e7fb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      overflow: auto;
+    }
+
+    nav.navbar {
+  width: 70%;
+  max-width: 30rem;
+  background-color: #ffffff;
+  box-shadow: 0px 5px 15px 8px #e4e7fb;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  position: fixed;
+  top: 20px; /* This positions the navbar 20px from the top of the window */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; /* Ensures the navbar stays above other elements */
+}
+
+
+    #header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.7rem;
+      color: #141a39;
+      text-transform: uppercase;
+      cursor: default;
+    }
+
+    .form-container {
+      width: 100%;
+      padding: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-control, .form-select {
+      border-radius: 0.5rem;
+      border: 1px solid #ddd;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+    }
+
+    .btn-submit {
+      background-color: #f55e77;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .btn-submit:hover {
+      background-color: #c0506a;
+    }
+
+    .autocomplete-suggestions {
+      border: 1px solid #ddd;
+      border-radius: 0.5rem;
+      max-height: 150px;
+      overflow-y: auto;
+      position: absolute;
+      background-color: #ffffff;
+      z-index: 1000;
+    }
+
+    .autocomplete-suggestion {
+      padding: 0.75rem;
+      cursor: pointer;
+    }
+
+    .autocomplete-suggestion:hover {
+      background-color: #f0f0f0;
+    }
+
+    @media (max-width: 1980px) {
+      body {
+        padding: 1rem;
+      }
+
+      main {
+        width: 90%;
+        min-height: auto;
+      }
+
+      nav.navbar {
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 740px) {
+      body {
+        padding: 1rem;
+      }
+
+      main {
+        width: 90%;
+        min-height: auto;
+      }
+
+      nav.navbar {
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 1rem;
+      }
+
+      nav.navbar {
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 390px) {
+      body {
+        padding: 0.5rem;
+      }
+
+      nav.navbar {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">1mark</a>
+      <ul class="navbar-nav d-flex flex-row">
+        <li class="nav-item">
+          <button class="home-button" onclick="window.location.href='/'" style="color: #000000; background: none; border: none; cursor: pointer;">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-home"
+            >
+              <path d="M3 9.5L12 3l9 6.5V21a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z"/>
+              <path d="M9 22V12h6v10"/>
+            </svg>
+          </button>
+          
+          
+          
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div id="header">
+      <h1>Welcome {{ user_type }} :)</h1>
+    </div>
+    <div class="form-container">
+      <form id="contribute-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" class="form-control" placeholder="Start typing a name" autocomplete="off" />
+          <div id="suggestions" class="autocomplete-suggestions"></div>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" class="form-control" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="team-name">Team Name</label>
+          <select id="team-name" class="form-select" required>
+            <option value="" disabled selected>Select a team</option>
+            <option value="Design">Design</option>
+            <option value="App flow">App flow</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-submit">Submit</button>
+      </form>
+    </div>
+  </main>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const names = [
+    'ABHINAND P K',
+    'ABHINAV R',
+    'AFSHEENA MUSTHAFA',
+    'AKSHARA A',
+    'ALWIN A S',
+    'ALWIN V P',
+    'AMAL SHAHAN',
+    'AMEYA ARUL',
+    'AMIL A',
+    'ANJANA UNNIKRISHNAN',
+    'APARNA K',
+    'ARATHY JOSE',
+    'ASWIN P',
+    'ASWIN   V SANTHOSH ',
+    'DARSHAN S',
+    'DEVANANDHA P A',
+    'DEVIKA V',
+    'DHYAN RAJAGOPALAN T P',
+    'DILNA ANIL P',
+    'DISNA JOSE',
+    'DIYA NASRIN  P A',
+    'FASNA FEBI  A V',
+    'FATHIMA AFRA A M ',
+    'FATHIMA FADWAH',
+    'FATHIMATH SUHRA  A K',
+    'FATHIMA VARSHA P T',
+    'FAZAL RAHMAN  MANAT ',
+    'FIDHA THASNI N',
+    'GEETHIKA R',
+    'HARINI  M',
+    'HASEEBA S A',
+    'HASNA SHERIN K',
+    'HAYFAA ZEINAB',
+    'JAHANA SHIRIN M N',
+    'KRISHNAVENI S S',
+    'LAVYA  SHAJI',
+    'LENITA GRACE RODRIGUES',
+    'LIYA  FATHIMA',
+    'MOHAMMED MAHIR K',
+    'MUHAMMED  AMAN K',
+    'MUHAMMED ISMAIL M',
+    'MUNEEB E T',
+    'NEHA MARIAM SUNNY',
+    'NEHA MEHARIN',
+    'NEHA TK',
+    'NOUREEN A C',
+    'PRIYANKA  PRADEEP',
+    'RANAH K',
+    'RENU  VENUGOPAL',
+    'RIDA THARIQ',
+    'RIFANA SHERIN',
+    'SALEEM MALIK P V',
+    'SANDRA ALEX',
+    'SANIA K S',
+    'SANJITH S',
+    'SHAHNA SANAH ',
+    'SHARON KRISHNA MK',
+    'SHREYA BAIJU',
+    'SNEHA S NAIR',
+    'SWETHA RAJ',
+    'VAISHNAV S L',
+    'VIGNESH   P  ',
+    'VISRUTH  N R',
+    'ZIYAD AHAMMED',
+];
+
+    const input = document.getElementById('name');
+    const suggestionsContainer = document.getElementById('suggestions');
+
+    input.addEventListener('input', () => {
+      const value = input.value.toLowerCase();
+      suggestionsContainer.innerHTML = '';
+
+      if (value) {
+        const filteredNames = names.filter(name => name.toLowerCase().includes(value));
+        
+        filteredNames.forEach(name => {
+          const suggestion = document.createElement('div');
+          suggestion.className = 'autocomplete-suggestion';
+          suggestion.textContent = name;
+          suggestion.addEventListener('click', () => {
+            input.value = name;
+            suggestionsContainer.innerHTML = '';
+          });
+          suggestionsContainer.appendChild(suggestion);
+        });
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!suggestionsContainer.contains(event.target) && event.target !== input) {
+        suggestionsContainer.innerHTML = '';
+      }
+    });
+
+    document.getElementById('contribute-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const description = document.getElementById('description').value;
+      const team = document.getElementById('team-name').value;
+
+      const response = await fetch('/contribute', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, description, team })
+      });
+
+      if (response.ok) {
+        alert('Contribution submitted successfully!');
+        document.getElementById('contribute-form').reset();
+      } else {
+        alert('Error submitting contribution.');
+      }
+    });
+  </script>
+</body>
+</html>

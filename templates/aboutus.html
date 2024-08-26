@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      height: 100%;
+      width: 100%;
+      min-height: 100vh;
+      background-color: #fbfaff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: "Rubik", sans-serif;
+    }
+
+    .navbar {
+      width: 70%;
+      max-width: 30rem;
+      background-color: #ffffff;
+      box-shadow: 0px 5px 15px 8px #e4e7fb;
+      border-radius: 0.5rem;
+      margin-bottom: 2rem;
+      margin-top: 20px;
+    }
+
+    main {
+      width: 80%;
+      max-width: 60rem;
+      background-color: #ffffff;
+      box-shadow: 0px 5px 15px 8px #e4e7fb;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      overflow: auto;
+    }
+
+    .header {
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      color: #141a39;
+      margin-bottom: 0.5rem;
+    }
+
+    .header p {
+      font-size: 1rem;
+      color: #707070;
+    }
+
+    .card-deck {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .card {
+      flex: 1 1 calc(25% - 1rem);
+      box-shadow: 0px 5px 15px 8px #e4e7fb;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      background-color: #ffffff;
+      text-align: center;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center horizontally */
+      justify-content: center; /* Center vertically */
+    }
+
+    .card img {
+      width: 120px; /* Adjusted size */
+      height: 120px; /* Adjusted size */
+      border-radius: 50%; /* Full circle */
+      border: 2px solid #ddd;
+      object-fit: cover;
+      margin-bottom: 0.3rem;
+    }
+
+    .card-body {
+      padding: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      color: #141a39;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-subtitle {
+      font-size: 1rem;
+      color: #707070;
+    }
+
+    .about-section {
+      margin-top: 2rem;
+    }
+
+    .about-section h2 {
+      font-size: 1.8rem;
+      color: #141a39;
+      margin-bottom: 1rem;
+      text-align: left; /* Align text to the left */
+    }
+
+    .about-section p {
+      font-size: 1rem;
+      color: #707070;
+      line-height: 1.6;
+      text-align: left; /* Align text to the left */
+    }
+
+    @media (max-width: 768px) {
+      .card-deck {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        flex: 1 1 100%;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .navbar {
+        width: 90%;
+      }
+
+      .card {
+        flex: 1 1 100%;
+      }
+
+      .header h1 {
+        font-size: 1.5rem;
+      }
+
+      .header p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">1mark</a>
+      <ul class="navbar-nav d-flex flex-row">
+        <li class="nav-item" style="margin-right: 10px;padding-left: 30px;">
+          <button class="back-button" style="color: #000000; background: none; border: none; cursor: pointer;" onclick="history.back()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-arrow-left"
+            >
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+    <!-- About Section -->
+    <div class="about-section">
+      <h2>About 1mark</h2>
+      <h5>🤔 Why 1Mark?</h5>
+<ul>
+        <li>As 5th-semester students, we're diving into core computer science subjects that are more challenging.</li>
+        <li><span style="font-weight: 590;">We all know the reality: many of us (myself included) study just a day or night before exams.</span></li>
+        <li>Due to time constraints, we often skip one or two modules, which impacts our overall performance—especially with 3-mark questions.</li>
+  <li><span style="font-weight: 590;">Just one extra mark can make a huge difference in your grades:</span>
+    <ul>
+      <li>For example, moving from a B to an A.</li>
+      <li>Or even avoiding a supplementary exam by improving from an F to a D.</li>
+    </ul>
+  </li>
+  <li><strong>💡 So, I had an idea:</strong> <span style="font-weight: 590;">what if there was a quiz app that helps you quickly grasp the key points of a module—even just an hour before the exam? That way, you’d have something to write about in the exam!</span></li>
+</ul>
+
+
+      <h5>🤨 What is 1mark?</h5>
+      <ul>
+        <li>1mark is a <strong>simple multiple-choice quiz web application</strong>.</li>
+        <li>It will be <span style="font-weight: 590;">designed, developed, and used</span> by computer science students of GECK.</li>
+        <li>The main goal of this app is to improve academic performance through quick and effective revision.</li>
+     </ul>
+      
+
+    
+      <h5>🧐 How does 1mark work?</h5>
+
+        <ul>
+          <li><span style="font-weight: 590;">Think of your exams as a game with two levels:</span> Part 1 is the “quick win” round with 10 short questions worth 3 marks each, and Part 2 is where the longer answers come into play.</li>
+          <li>If you nail the 10 questions in Part 1, you’re already got 30 marks mahhn!</li>
+          <li>The good news? The remaining 10 marks are within reach with just a bit of basic knowledge—giving you the confidence to ace the exam.</li>
+          <li>We’ll stuff each quiz with 10 rapid-fire questions that cut to the chase, so you can grab the essential ideas in no time!</li>
+          <li><span style="font-weight: 590;">These questions are crafted by expert teachers (who know all the frequently repeated 3-mark questions) or with the help of AI.</span> You’re getting the best of both worlds!</li>
+          <li>This strategy ensures that when you’re in the exam, you’ve got a solid foundation to build on—<span style="font-weight: 590;">because having some prep is always better than going in blind.</span></li>
+        </ul>
+
+        <h5>🛠️ How Am I Gonna Build This?</h5>
+        <ul>
+          <li>Honestly, I’m not entirely sure yet! <strong>BUT ,</strong></li>
+          <li>I’ve put together a fantastic team of managers—check them out below!</li>
+          <li>Anyone can pitch in to help build the 1Mark app, so feel free to get involved.</li>
+          <li><strong>This platform is all about giving a shoutout and celebrating everyone who helps make the 1Mark app amazing. Plus, there will be ✨awesome prizes✨ for the top contributors!</strong></li>
+        </ul>
+
+        <h5>🤝 How Can You Contribute to This?</h5>
+
+<p>Since this is a quiz app, you probably have a good sense of how it should work. Here’s how you can help:</p>
+
+<ul>
+  <li>You can help in two super cool ways:
+
+    <ul>
+      <li><span style="font-weight: 590;">1) App Flow:</span> Think of this as the map/blueprint of our app. You’ll design the wireframes, figuring out which button takes you where. Got ideas? Send them to Afra!</li>
+      <li><span style="font-weight: 590;">2) UI Design:</span> This is all about making our app look amazing—buttons, colors, fonts, backgrounds, and more. If you’ve got a flair for design, Neha’s the person to send your ideas to.</li>
+    </ul>
+  </li>
+
+  <li>Need inspiration? Check this out:
+    <ul>
+      <li><span style="font-weight: 590;">Check Out Other Webpages:</span>  Find inspiration from existing designs, take screenshots/links, and share them with the relevant team leader.</li>
+      <li><span style="font-weight: 590;">Code the Design:</span> Got a design idea? Help us bring it to life with some code.</li>
+      <li><span style="font-weight: 590;">AI-Generated Designs:</span> Use AI tools to create some cool designs and share them with us!</li>
+      <li><span style="font-weight: 590;">Share Your Suggestions:</span> > If you think a button or feature could be improved, suggest a change and let us know!</li>
+      <li><span style="font-weight: 590;">And More:</span>  If you have other creative ideas or contributions, feel free to share!</li>
+    </ul>
+  </li>
+
+</ul>
+
+<h5>🚀 Why Should You Jump In? </h5>
+
+<ul>
+  <li><strong>🔥 Boost Your Resume:</strong> Help us build this app and add some awesome experience to your resume.</li>
+  <li><strong>🔥 Level Up Academics:</strong> Improve academics.</li>
+  <li><strong>🔥 Get Noticed:</strong> Bindima Miss will be like "seniorsine kand padikkeda....." </li>
+</ul>
+
+
+        
+
+      
+    </div>
+
+    <div class="header">
+      <h1>About Us</h1>
+      <p>Meet the team behind the magic and learn more about our mission and vision.</p>
+    </div>
+
+    <!-- Team Cards -->
+    <div class="card-deck">
+      <div class="card">
+        <img src="{{ url_for('static', filename='profile_pics/34.jpg' ) }}" alt="Team Member 1" />
+        <div class="card-body">
+          <h5 class="card-title">Sandra Alex</h5>
+          <h6 class="card-subtitle">Lead</h6>
+        </div>
+      </div>
+      <div class="card">
+        <img src="{{ url_for('static', filename='profile_pics/35.jpg' ) }}"  alt="Team Member 2" />
+        <div class="card-body">
+          <h5 class="card-title">Saleem Malik</h5>
+          <h6 class="card-subtitle">Co-Lead</h6>
+        </div>
+      </div>
+      <div class="card">
+        <img src="{{ url_for('static', filename='profile_pics/36.jpg' ) }}"  alt="Team Member 3" />
+        <div class="card-body">
+          <h5 class="card-title">Neha Mariyam</h5>
+          <h6 class="card-subtitle">Design Lead</h6>
+        </div>
+      </div>
+      <div class="card">
+        <img src="{{ url_for('static', filename='profile_pics/38.jpg' ) }}"  alt="Team Member 4" />
+        <div class="card-body">
+          <h5 class="card-title">Afra Arakkal</h5>
+          <h6 class="card-subtitle">UX Lead</h6>
+        </div>
+      </div>
+      <p>Join us on our mission to improve academic performance and make exam preparation more manageable. Explore 1mark, test your knowledge, and experience how a single mark can make a big difference!</p>
+
+    </div>
+
+    
+  </main>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

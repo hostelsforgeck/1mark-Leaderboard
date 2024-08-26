@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      height: 100%;
+      width: 100%;
+      min-height: 100vh;
+      background-color: #fbfaff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: "Rubik", sans-serif;
+    }
+
+    main {
+      width: 80%;
+      max-width: 40rem;
+      min-height: 90vh;  /* Changed from height to min-height */
+      background-color: #ffffff;
+      box-shadow: 0px 5px 15px 8px #e4e7fb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      overflow: auto;  /* Allows for scrolling if content exceeds the height */
+    }
+
+    nav.navbar {
+      width: 70%;
+      max-width: 30rem;
+      background-color: #ffffff;
+      box-shadow: 0px 5px 15px 8px #e4e7fb;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    #header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .share {
+      width: 4.5rem;
+      height: 3rem;
+      background-color: #f55e77;
+      border: 0;
+      border-bottom: 0.2rem solid #c0506a;
+      border-radius: 2rem;
+      cursor: pointer;
+    }
+
+    .share:active {
+      border-bottom: 0;
+    }
+
+    .share i {
+      color: #fff;
+      font-size: 2rem;
+    }
+
+    h1 {
+      font-size: 1.7rem;
+      color: #141a39;
+      text-transform: uppercase;
+      cursor: default;
+    }
+
+    #leaderboard {
+      width: 100%;
+      position: relative;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      color: #141a39;
+      cursor: default;
+    }
+
+    tr {
+      transition: all 0.2s ease-in-out;
+      border-radius: 0.2rem;
+    }
+
+    tr:hover {
+      background-color: #fff;
+      transform: scale(1.05);
+      box-shadow: 0px 5px 15px 8px #e4e7fb;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+    td {
+      height: 5rem;
+      padding: 1rem 2rem;
+      position: relative;
+      font-size: 1.2rem;
+    }
+
+    .number {
+      width: 5rem;
+      height: 5rem;
+      overflow: hidden;
+      margin: auto;
+    }
+
+    .number img {
+      width: 100%;
+      height: 100%;
+      border-radius: 100px;
+      object-fit: cover;
+    }
+
+    .name {
+      text-align: center;
+      font-size: 1.4rem;
+    }
+
+    .points {
+      font-weight: bold;
+      font-size: 1.3rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .points:first-child {
+      width: 10rem;
+    }
+
+    .gold-medal {
+      height: 3rem;
+      margin-left: 1.5rem;
+    }
+
+    @media (max-width: 1980px) {
+      body {
+        padding: 1rem;
+      }
+
+      main {
+        width: 90%;
+        min-height: auto;
+      }
+
+      nav.navbar {
+        width: 90%;
+      }
+
+      td {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+      }
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      .points {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 740px) {
+      body {
+        padding: 1rem;
+      }
+
+      main {
+        width: 90%;
+        min-height: auto;
+      }
+
+      nav.navbar {
+        width: 90%;
+      }
+
+      td {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      .points {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 1rem;
+      }
+
+      nav.navbar {
+        width: 90%;
+      }
+
+      .share {
+        width: 3rem;
+        height: 2rem;
+      }
+
+      .share i {
+        font-size: 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.1rem;
+      }
+
+      td {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+      }
+
+      .points {
+        font-size: 0.9rem;
+      }
+
+      .gold-medal {
+        height: 2rem;
+      }
+    }
+
+    @media (max-width: 390px) {
+      body {
+        padding: 0.5rem;
+      }
+
+      nav.navbar {
+        width: 90%;
+      }
+
+      .share {
+        width: 2.5rem;
+        height: 1.5rem;
+      }
+
+      .share i {
+        font-size: 1.2rem;
+      }
+
+      h1 {
+        font-size: 0.9rem;
+      }
+
+      td {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+      }
+
+      .points {
+        font-size: 0.8rem;
+      }
+
+      .gold-medal {
+        height: 1.5rem;
+      }
+    }
+    .clickable-row {
+            cursor: pointer;
+        }
+        .clickable-row td {
+            padding: 10px;
+        }
+        .clickable-row:hover {
+            background-color: #f5f5f5; /* Optional: to highlight the row on hover */
+        }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-light" style="background-color: #ffffff; box-shadow: 0px 5px 15px 8px #e4e7fb;">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">1mark</a>
+      <ul class="navbar-nav d-flex flex-row">
+        <li class="nav-item" style="margin-right: 10px;padding-left: 30px;">
+          <a class="nav-link" href="/about-us">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin">Admin</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div id="header">
+      <h1>Ranking</h1>
+      <!-- <button class="share">
+        <i class="ph ph-share-network"></i>
+      </button> -->
+    </div>
+    <div id="leaderboard">
+      <table>
+        {% for i in student %}
+        <tr class="clickable-row" data-href="/profile-details/{{ i[0] }}">
+          <td class="number" sty>
+            <img src="{{ url_for('static', filename='profile_pics/' + profile_pics | random) }}" alt="1" />
+          </td>
+          <td class="name" style="text-align: left;">
+            {{ i[1] }}
+          </td>
+          <td class="points">
+            {{ i[2] }}
+          </td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+  </main>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.querySelectorAll('.clickable-row').forEach(row => {
+        row.addEventListener('click', () => {
+            window.location.href = row.getAttribute('data-href');
+        });
+    });
+</script>
+</body>
+</html>
+
+
+
+
